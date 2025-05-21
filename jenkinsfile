@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven' // <-- This must match the name you gave in the UI
+        maven 'Maven' 
+        jdk 'JDK-24'
     }
 
     stages {
