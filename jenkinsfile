@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven' // <-- This must match the name you gave in the UI
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the Code..........'
+                bat 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                bat 'mvn test'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                echo 'Compiling the code...'
+                bat 'mvn compile'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the code...'
+                // add your deploy script here
+            }
+        }
+    }
+}
